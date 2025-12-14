@@ -1,41 +1,42 @@
-# Data-Transmission-with-Error-Detection-Methods
+ Socket Programming Assignment  
+## Data Transmission with Error Detection & Injection
 
-Project Overview
+---
 
-This project demonstrates *data transmission with error detection techniques* using *socket programming*.  
+ Project Overview
+
+This project demonstrates **data transmission with error detection techniques** using **socket programming**.  
 The system simulates a real network by including:
 
-- Random *error detection method selection*
-- Random *error injection*
-- Correct handling of *corrupted and non-corrupted data*
+- Random **error detection method selection**
+- Random **error injection**
+- Correct handling of **corrupted and non-corrupted data**
 
-The project consists of *three main components*:
+The project consists of **three main components**:
 
-1. *Client 1 (Sender)*
-2. *Server (Intermediate Node + Error Injector)*
-3. *Client 2 (Receiver + Error Controller)*
+1. **Client 1 (Sender)**
+2. **Server (Intermediate Node + Error Injector)**
+3. **Client 2 (Receiver + Error Controller)**
 
 ---
 
-Project Structure
+ Project Structure
 
-
-project/
-├── client1.py
-├── client2.py
-├── server.py
-├── controls.py
-├── errors.py
-├── utils.py
-├── main.py
+```
+ project/
+├── checks.py
+├── corruptions.py
+├── client1_sender.py
+├── server_corruptor.py
+├── client2_receiver.py
 └── README.md
-
+```
 
 ---
 
-Control Information Generation Methods
+ Control Information Generation Methods
 
-The system randomly selects *one of the following methods* for each transmission:
+The system randomly selects **one of the following methods** for each transmission:
 
 | Method | Description |
 |------|------------|
@@ -47,7 +48,7 @@ The system randomly selects *one of the following methods* for each transmission
 
 ---
 
-Error Injection Methods
+ Error Injection Methods
 
 The server randomly applies one of the following error types or forwards the data without error:
 
@@ -62,15 +63,15 @@ The server randomly applies one of the following error types or forwards the dat
 
 ---
 
-Packet Format
+ Packet Format
 
-
+```
 DATA | METHOD | CONTROL_INFORMATION | ERROR_FLAG
-
+```
 
 ---
 
-How to Run
+ How to Run
 
 Run in separate terminals:
 
@@ -78,6 +79,34 @@ Run in separate terminals:
 python client2_receiver.py
 python server_corruptor.py
 python client1_sender.py
+```
 
-Conclusion
+---
+
+ Output Example
+
+```
+Received Data : HEZLO
+Method : CRC16
+Sent Check Bits : 87AF
+Computed Check Bits : 92B1
+Status : DATA CORRUPTED
+```
+
+Parity limitation example:
+
+```
+Status : DATA CORRECT (Parity failed to detect error)
+```
+
+---
+
+ Conclusion
+
 This project demonstrates realistic data transmission, error detection limitations, and modular socket-based design.
+
+---
+
+Author
+
+Elif Zehra Ünal 
